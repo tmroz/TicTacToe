@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *myLabelEight;
 @property (weak, nonatomic) IBOutlet UILabel *myLabelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *xMovelabel;
+@property (weak, nonatomic) IBOutlet UILabel *oMoveLabel;
 
 
 @end
@@ -106,11 +108,16 @@
         [alert show];
         [self clearBoard];
     }
-
-
-
-
-
+   else if ((![self.myLabelOne.text isEqualToString:@""] && ![self.myLabelTwo.text isEqualToString:@""]
+               && ![self.myLabelThree.text isEqualToString:@""] && ![self.myLabelFour.text isEqualToString:@""]
+               && ![self.myLabelFive.text isEqualToString:@""] && ![self.myLabelSix.text isEqualToString:@""]
+               && ![self.myLabelNine.text isEqualToString:@""]))
+    {
+        alert.title = @"NO WINNER";
+        alert.message =@"It's a Tie";
+        [alert show];
+        [self clearBoard];
+    }
 }
 
 -(void) clearBoard
@@ -155,13 +162,13 @@
     { winner = @"Player O WINS!";}
     else if([self.myLabelOne.text isEqualToString:(@"O")] && [self.myLabelFour.text isEqualToString:(@"O")] && [self.myLabelSeven.text isEqualToString:(@"O")])
     { winner = @"O";}
-    else if([self.myLabelTwo.text isEqualToString:(@"0")] && [self.myLabelFive.text isEqualToString:(@"0")] && [self.myLabelEight.text isEqualToString:(@"0")])
+    else if([self.myLabelTwo.text isEqualToString:(@"O")] && [self.myLabelFive.text isEqualToString:(@"O")] && [self.myLabelEight.text isEqualToString:(@"O")])
     { winner = @"O";}
-    else if([self.myLabelThree.text isEqualToString:(@"0")] && [self.myLabelSix.text isEqualToString:(@"0")] && [self.myLabelNine.text isEqualToString:(@"0")])
+    else if([self.myLabelThree.text isEqualToString:(@"O")] && [self.myLabelSix.text isEqualToString:(@"O")] && [self.myLabelNine.text isEqualToString:(@"O")])
     { winner = @"O";}
-    else if([self.myLabelOne.text isEqualToString:(@"0")] && [self.myLabelFive.text isEqualToString:(@"0")] && [self.myLabelNine.text isEqualToString:(@"0")])
+    else if([self.myLabelOne.text isEqualToString:(@"O")] && [self.myLabelFive.text isEqualToString:(@"O")] && [self.myLabelNine.text isEqualToString:(@"O")])
     { winner = @"O";}
-    else if([self.myLabelThree.text isEqualToString:(@"0")] && [self.myLabelFive.text isEqualToString:(@"0")] && [self.myLabelSeven.text isEqualToString:(@"0")])
+    else if([self.myLabelThree.text isEqualToString:(@"O")] && [self.myLabelFive.text isEqualToString:(@"O")] && [self.myLabelSeven.text isEqualToString:(@"O")])
     { winner = @"O";}
 
     return winner;
